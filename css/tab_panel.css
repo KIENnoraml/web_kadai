@@ -1,0 +1,49 @@
+.tab .botan {
+    display: flex;
+}
+
+.tab .tab_botan {
+    width: 200px;
+    padding: 10px 0px;
+    margin-left: 5px;
+    color: #333;
+    background-color: rgb(245, 244, 239);
+    text-align: center;
+}
+
+.tab .tab_botan.active {
+    color: aliceblue;
+    background-color: rgb(31, 34, 38);
+}
+
+.tab .panel {
+    border: solid 1px #f8e7e7;
+    padding: 50px;
+
+}
+
+.tab .tab_panel {
+    display: none;
+    
+}
+
+.tab .tab_panel.active {
+
+    display: block;
+    display: flex;
+    /* justify-content: start; */
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+.tab .tab_panel.active img{
+    width: 200px;
+    height: 200px;
+    
+}
+#listproduct li{
+   
+    display: flex;
+    align-items: center;
+}

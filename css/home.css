@@ -1,0 +1,129 @@
+#wrapper {
+    margin: 0px auto;
+    width: 960px;
+
+}
+
+#wellcome h1 {
+    padding: 20px;
+    margin: 10px 0px;
+    background-color: rgb(181, 243, 222);
+    font-family: 'ゴシック体';
+    text-align: center;
+    font-weight: 200;
+    color: rgb(248, 255, 240);
+
+}
+
+#majorIntroduct {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: '明朝体';
+
+}
+
+#majorIntroduct>div {
+    width: 960px;
+    text-align: center;
+}
+
+#majorIntroduct a {
+
+    display: block;
+    margin: 5px 0px;
+    padding: 3px;
+    background-color: rgb(254, 233, 206);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#img {
+    display: flex;
+    justify-content: center;
+}
+
+#img img {
+
+    width: 180px;
+    height: 180px;
+    margin: 20px;
+}
+
+#content h3 {
+    color: rgb(126, 177, 248);
+}
+
+#content h4 {
+    text-decoration: none;
+    color: red;
+}
+
+
+
+.text {
+    display: none;
+    /* display: block;
+    animation: 2s fadeIn; */
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.text.appear {
+    display: block;
+    position: relative;
+}
+
+.text.appear img {
+    width: 950px;
+    height:600px;
+    z-index: -1;
+    animation: 6s fadeIn1;
+}
+
+.text.appear p {
+    position: absolute;
+    left: 450px;
+    top: 250px;
+    animation: 6s fadeIn;
+}
+
+#footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+#listimage{
+    display: flex;
+    
+    }
+    #image0{
+        width: 800px;
+        height: 600px;
+    }
+ 
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn1 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

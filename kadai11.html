@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/tab_panel.css">
+    <script src="js/jquery-3.6.2.min.js"></script>
+    <script src="js/slick.min.js"></script>
+
+    <title>Why We Age—and Why We Don't Have To</title>
+</head>
+
+<body>
+
+
+    <div id="wrapper">
+        <div id="header">
+
+            <div id="wellcome">
+                <section>
+
+
+                    <div>
+                        <div class="text appear">
+                            <img src="img/02soy.jpg" alt="">
+                            <p>連続45分以上じっと座らないでください</p>
+                        </div>
+                        <div class="text">
+                            <img src="img/10crocus.jpg" alt="">
+                            <p>老化は治療できる病である</p>
+                        </div>
+                        <div class="text">
+                            <img src="img/20wine.jpg" alt="">
+                            <p>あなたの体は神殿です.</p>
+                        </div>
+
+
+                        <script>
+                            const text = document.querySelectorAll('.text');
+                            let i = 1;
+                           // var arr = ["こんにちは！", "hello", "你好"];
+                            function textAppear() {
+                                if (i > 2) {
+                                    i = 0;
+                                }
+
+                                text.forEach(text => {
+                                    text.classList.remove('appear');
+                                });
+                                text[i].classList.add('appear');
+                                i++;
+
+                            }
+
+
+                            setInterval(textAppear, 6000);
+
+                        </script>
+                    </div>
+                </section>
+            </div>
+
+            <div class="tab">
+                <div class="botan">
+                    <p class="tab_botan active">home</p>
+                    <p class="tab_botan">menu</p>
+                    <p class="tab_botan">product</p>
+
+                </div>
+
+                <div class="panel">
+                    <div class="tab_panel active">
+                        <img src="img/david-sinclair-45370562.jpg" alt="">
+                      
+                        <a href="https://www.amazon.co.jp/Lifespan-Age%E2%80%94-Dont-Have-English-ebook/dp/B07N4C6LGR/ref=sr_1_5?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2D9YVS0DMLTQH&keywords=Why+We+Age%E2%80%94and+Why+We+Don%27t+Have+To&qid=1690339021&sprefix=why+we+age+and+why+we+don%27t+have+to%2Caps%2C178&sr=8-5"
+                         target="_blank">"老化は治療できる病である。" David Sinclair</a>
+                    </div>
+                    <div class="tab_panel ">
+                        <ul type="none" id="listproduct">
+                            <li>
+                                <a href="#content"> <img src="img/00soy.jpg" alt="" onclick="append22(this)"> </a>
+                                <p>大豆の栄養と効果効能・食べ方・注意点・保存法。</p>
+
+                            </li>
+                            <li>
+                                <a href="#content"> <img src="img/10crocus.jpg" alt="" onclick="append22(this)"> </a>
+                                <p>ターメリック（ウコン）は本当に体にいいのか？気になる効果と摂り方。</p>
+
+                            </li>
+                            <li>
+                                <a href="#content"> <img src="img/20wine.jpg" alt="" onclick="append22(this)"> </a>
+                                <p>赤ワインポリフェノール等の効果効能。体にいい健康的な飲み方</p>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab_panel">
+                        <div>
+                            <form action="gio_hang.html" name="myform">
+                                <select name="item" id="">
+
+                                    <option value="soy">soy</option>
+                                    <option value="crocus">crocus</option>
+                                    <option value="wine">wine</option>
+                                </select>
+                                <select name="number" id="">
+
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <input type="button" value="追加" onclick="add()">
+                                <input type="button" value="クリア" onclick="clear1()">
+                                <input type="button" value="合計" onclick="caculale()">
+
+                            </form>
+                        </div>
+
+                        <div>
+                            <table id="table">
+                                <thead>
+                                    <td>商品</td>
+                                    <td>価格</td>
+                                    <td>個数</td>
+                                    <td>計</td>
+                                </thead>
+                            </table>
+                        </div>
+
+
+
+
+
+                        <script>
+                            var sum = 0;
+                            var itemlist = ["soy", "crocus", "wine"];
+                            //var pricelist=[50,100,75];
+                            var pricelist = { "soy": 50, "crocus": 100, "wine": 75 };
+
+                            function add() {
+                                var ite = myform.item.value;
+                                var num = myform.number.value;
+
+
+                                var e = document.getElementById("table");
+                                var elmr = document.createElement("tr");
+                                var elmd = document.createElement("td");
+                                var txt = document.createTextNode(ite);
+                                elmd.appendChild(txt);
+                                elmr.appendChild(elmd);
+
+                                var elmd = document.createElement("td");
+                                var txt = document.createTextNode(pricelist[ite]);
+                                elmd.appendChild(txt);
+                                elmr.appendChild(elmd);
+
+
+                                var elmd = document.createElement("td");
+                                var txt = document.createTextNode(num);
+                                elmd.appendChild(txt);
+                                elmr.appendChild(elmd);
+
+                                var c = pricelist[ite] * num;
+                                sum = sum + c;
+                                var elmd = document.createElement("td");
+                                var txt = document.createTextNode(c);
+                                elmd.appendChild(txt);
+                                elmr.appendChild(elmd);
+
+                                e.appendChild(elmr);
+                            }
+
+                            function clear1() {
+
+                                var e = document.getElementById("table");
+                                // window.alert("合計: " + e + "円。");
+                                for (var i = e.childNodes.length - 1; i > 1; i--) {
+                                    e.removeChild(e.childNodes[i]);
+                                }
+                                sum = 0;
+                            }
+                            function caculale() {
+                                window.alert("合計: " + sum + "円。");
+
+                            }
+
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+            </script>
+
+
+
+        </div>
+
+        <style>
+            .fulit {
+                display: none;
+            }
+
+            .fulit.append1 {
+                display: block;
+            }
+
+            #content {
+                display: none;
+            }
+        </style>
+        <div id="content">
+            <div id="listimage">
+                <img id="image0" src="img/00soy.jpg" alt="">
+                <div>
+                    <ul type="none">
+                        <li>
+                            <img id="image1" src="img/00soy.jpg" alt="" width="100" height="100" onclick="change(this)">
+                        </li>
+                        <li>
+                            <img id="image2" src="img/01soy.png" alt="" width="100" height="100" onclick="change(this)">
+                        </li>
+                        <li>
+                            <img id="image3" src="img/02soy.jpg" alt="" width="100" height="100" onclick="change(this)">
+                        </li>
+                        <li>
+                            <img id="image4" src="img/03soy.jpg" alt="" width="100" height="100" onclick="change(this)">
+                        </li>
+
+
+
+                    </ul>
+                    <script>
+                        function change(element) {
+                            var t = element.getAttribute("src");
+                            document.getElementById('image0').setAttribute("src", t);
+                        }
+                    </script>
+
+                </div>
+            </div>
+
+            <div id="soy" class="fulit">
+                <h3>大豆の栄養と効果効能・食べ方・注意点・保存法</h3>
+                <div>
+                    <h3>大豆とは</h3>
+                    <hr>
+                    <p>大豆（soy
+                        beans）は、マメ科の一年草です。中国東北部からシベリア原産で、世界各地で栽培・利用されており、完熟したものは大豆油の原料として用いられ、絞り粕は飼料に、未成熟な種子は枝豆として食されます。
+                    </p>
+                    <p>大豆タンパクが豊富で、タンパク資源として重要な食材です。牛乳や卵など、動物性タンパク質に匹敵する良質なタンパク質を含有すること、また調理法によって肉のような食感を得られることから、「畑の肉」とも呼ばれます。
+                    </p>
+                    <p>タンパク質以外に、鉄、カルシウムなどミネラルが豊富なほか、近年は大豆イソフラボンの示す女性ホルモン様作用も注目されています。
+                    </p>
+                    <p>世界的には、大豆油の原料として用いられる割合が生産量の87％と大部分を占め、環境に配慮した素材である大豆インキの需要も拡大しています。
+                    </p>
+                    <p>日本では大豆油よりも菜種油が主に用いられてきたため、大豆油の生産量は菜種油の半分以下です。その代わり日本では、古くから豆腐や油揚げなどの食品原料として大豆を用いてきたほか、味噌・醤油・納豆といった発酵食品として親しまれてきました。
+                    </p>
+                    <p>日本人にとってなじみ深い食材ですが、しかし国内自給率は3～4％であり、大半を輸入に頼っています。
+                    </p>
+
+
+                </div>
+                <div>
+                    <h3>大豆の効果・効能</h3>
+                    <hr>
+                    <p>大豆に含まれる栄養素が持つ効果・効能・働きを解説します。
+                    </p>
+                    <p>糖質・脂質を抑えながらタンパク質を補給できる</p>
+                    <p>大豆タンパク質は、その他のタンパク質高含有食品に比べて、低糖質かつ低脂質なため、筋肉増強に限らず運動をしていない人のタンパク質補給としても利用しやすい点が特徴です。 </p>
+                    <p>タンパク質は、骨や歯、皮膚、血管、内臓、髪の毛など、人体のあらゆる部位に利用されているため、不足するとさまざまな不調につながります。</p>
+                    <p>トレーニングのお供としてだけでなく、普段からの健康維持としても欠かせない栄養素です。</p>
+                    <p>コレステロール値を低下させる</p>
+                    <p>中性脂肪を低減する</p>
+                    <p>大豆イソフラボンによる美肌効果や血流改善効果に期待</p>
+                    <p>サポニンの抗酸化作用</p>
+                </div>
+                <div>
+                    <h3>大豆の食べ方</h3>
+                    <hr>
+                    <p>大豆の栄養素を損なわない洗い方や調理方法を解説します。
+                    </p>
+                    <p>大豆のおすすめ調理方法</p>
+
+                    <p>大豆の栄養素を余さず効率的に摂取するには、なるべくそのまま食べることが重要です。加熱・粉砕などの加工を加えると、一部の栄養が損なわれてしまいます。</p>
+                    <p>一方で、タンパク質を補給したい、など目的が明確な場合は、大豆タンパクを凝縮したソイプロテイン製品を利用するといいでしょう。</p>
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <div id="crocus" class="fulit">
+                <h2>ターメリック（ウコン）は本当に体にいいのか？気になる効果と摂り方。</h2>
+                <div>
+                    <h3>ターメリック（ウコン）の効能</h3>
+                    <hr>
+                    <p>ターメリックに関する研究結果の中で最も有名なのは、「ターメリックが炎症の防止に効く可能性がある」というものです。
+                    </p>
+                    <p>実際、ターメリックに含まれるクルクミンという化合物（ターメリックが黄色いのはクルクミンのおかげです）には抗酸化作用がありますが、「クルクミン400〜500 mgは、2000
+                        mgのアセトアミノフェン（タイレノールなどの解熱鎮痛薬）とほぼ同等の鎮痛効果をもつ可能性がある」と、米プリシジョン・ニュートリション社のブライアン・セント・ピエール氏は言います。
+                    </p>
+
+                </div>
+                <div>
+                    <h3>ターメリック（ウコン）摂り方&使い方</h3>
+                    <hr>
+                    <p>米健康系ニュースメディア「redbook」によると、「ターメリックを黒コショウと一緒に摂れば、ターメリックの吸収力を2000倍にする可能性がある」といいます。
+                    </p>
+                    <p>野菜炒めやカレーを作ったり、シンプルに鶏肉とライスに味付けしたいときも、ひとふりするだけでも良いかもしれません。そして、流行のゴールデンラテに少量加えるのもアリかもしれません。
+                    </p>
+                    <p>ウコンの色素成分であるクルクミンは、食品安全委員会「JECFA」が一日許容摂取量を体重1kg当たり3mgと設定しています。これは、たとえば体重50 kgの方で150 mgの摂取量です
+                    </p>
+                </div>
+                
+            </div>
+
+            <div id="wine" class="fulit">
+                <h2>赤ワインポリフェノール等の効果効能。体にいい健康的な飲み方</h2>
+                <div>
+                    <h3>なぜ赤ワインが効果的なのか？</h3>
+                    <hr>
+                    <p>なぜ、赤ワインを中心に健康効果が叫ばれているのでしょうか。その理由のひとつが、「ポリフェノール」にあります。
+                        ポリフェノールは、悪玉コレステロールの酸化を和らげる効果があるなど、ワインだけでなくチョコレートや緑茶などでも注目される成分です。
+                        赤ワインは、黒ブドウの果皮と種子、果実からつくられるワインですが、ポリフェノールは果皮と種子に多く含まれます。
+                        赤ワインはポリフェノールが豊富なワインであるため、結果的に健康効果と結びつけられていると考えられるでしょう。
+                    </p>
+                </div>
+                <div>
+                    <h3>ワインのポリフェノールの健康効果</h3>
+                    <hr>
+                    <h4>
+                        眼精疲労回復</h4>
+                    <p>ワインの原料のぶどうには、ポリフェノールの一種であるアントシアニンが含まれています。ポリフェノールは成分の総称で、アントシアニンもポリフェノールと呼ばれる成分の一つです。
+
+                        アントシアニンは、高い抗酸化作用を持ち血行促進の効能があります。血行が良くなるので、疲れた目にも栄養が行き届き、眼精疲労に効果的といわれています。
+                        
+                        強い紫外線から植物を守っているのがアントシアニンですが、人間の目に対しても同じような効果があり目の紫外線対策にもなります。ワインの成分であるぶどうと同様に、ブルーベリーにもアントシアニンが多く含まれています。
+                    </p>
+                    <h4>免疫力の改善</h4>
+                    <p>ポリフェノールには、カテキンという成分も含まれているのですがこちらは免疫力の改善に効果があります。お茶にも含まれているカテキンは、古くから身体に良いと親しまれている成分で、最近の研究ではインフルエンザウイルスにも有効だということが判りました。
+               
+
+                        <h4>肝機能改善</h4>
+                        <p>
+                            肝機能改善に効果が期待されているのが、こちらもポリフェノールの一種であるクルクミンです。肝臓は、胆汁を分泌し脂肪を分解したり解毒の作用があるといわれています。
+
+                            クルクミンは胆汁の分泌をサポートし、解毒酵素を増加させるといった効能があります。疲労回復や二日酔いにも良いといわれ、ウコンにも含まれている成分です。
+
+               </p>
+               <h4>認知症予防</h4>
+               <p>
+                高齢化社会の日本では話題に上ることが多い認知症ですが、65歳以上の高齢者の15％の人が悩んでいる疾患です。
+               </p>
+               <p>ワインに含まれるマグネシウムは脳細胞の活性化に効果が期待されています。また、ポリフェノールはDNAを保護する役割さえ持っていると言われています。認知症やがん予防といった観点からも同成分は注目されているのです。</p>
+                    </div>
+                <div>
+                    <h3>ワインは適量飲むことで効果を発揮</h3>
+                    <hr>
+                    <p>人間、誰もが健康になりたいと願っており、「これを摂取すれば健康効果が期待できる」ということで大量に摂取する方が出てきます。しかし、どんなに健康に良いといっても適量が存在し、過剰摂取すると別の弊害が訪れてしまうのです。とくにワインは、「アルコール飲料」です。アルコール度数は最低でも10度程度あり、高いものは15%近くになります。それらを、大量飲酒すれば、ワインの健康効果ではなくアルコールによる弊害が訪れてしまうでしょう。
+                    </p>
+                    <p>
+                        
+厚生労働省では、酒類による適量ではなく、1日のアルコールの摂取量の目安を公開しています。
+死亡率が高いと言われているのが、純アルコールを1日20g摂取している方だと示唆されているため、ワインの場合は「120ml（約1杯）＝12g」、つまり「1日約1杯半」となるのです。
+それ以上飲んだら危険といった数値ではないかもしれませんが、健康効果を期待する方であればこの量でワインを摂取することを心がけると良いのではないでしょうか。
+                    </p>
+                </div>
+            </div>
+
+
+            <script>
+                const text1 = document.querySelectorAll('.fulit');
+                var e, a;
+                function append22(element) {
+                    a = element.getAttribute("src");
+                    e = a.charAt(4);
+                    document.getElementById("content").style.display = "block";
+
+                    textAppear1();
+                    changeimg();
+
+                }
+                function textAppear1() {
+
+                    //window.alert(e);
+                    text1.forEach(text1 => {
+                        text1.classList.remove('append1');
+                    });
+                    text1[e].classList.add('append1');
+                    //i1++;
+
+                }
+                function changeimg() {
+
+
+
+                    for (let i = 0; i < 5; i++) {
+                        var imgId = "image" + i;
+                        var imgSrcText = a.substring(0, 5) + i + a.substring(6, a.length);
+                        document.getElementById(imgId).setAttribute("src", imgSrcText);
+                    }
+
+                }
+
+
+
+                $('.tab .tab_botan').click(function () {
+                    var index = $('.tab .tab_botan').index(this);
+                    $('.tab .tab_botan ,.tab .tab_panel').removeClass('active');
+                    $(this).addClass('active');
+                    $('.tab .tab_panel').eq(index).addClass('active');
+                    document.getElementById("content").style.display = "none";
+                });
+
+
+
+
+            </script>
+        </div>
+
+
+        <div id="footer">
+            <p>現在の時刻は<span id="jikan"></span>です。</p>
+            <script>
+                setInterval(mytime, 1000);
+                function mytime() {
+
+
+                    var b = new Date();
+                    var a = document.getElementById('jikan').innerHTML = b.toLocaleTimeString();
+
+                }
+            </script>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
